@@ -46,7 +46,7 @@ class Collect(object):
         for name, keys in self.kwargs.items():
             name = name.replace("_keys", "")
             assert isinstance(keys, Sequence)
-            data[name] = torch.cat([data_dict[key].float() for key in keys], dim=1)
+            data[name] = torch.cat([data_dict[key].float() for key in keys], dim=1)        
         return data
 
 
@@ -209,6 +209,8 @@ class RandomDropout(object):
                 data_dict["color"] = data_dict["color"][idx]
             if "normal" in data_dict.keys():
                 data_dict["normal"] = data_dict["normal"][idx]
+            if "verticality" in data_dict.keys():
+                data_dict["verticality"] = data_dict["verticality"][idx]
             if "strength" in data_dict.keys():
                 data_dict["strength"] = data_dict["strength"][idx]
             if "segment" in data_dict.keys():
@@ -960,6 +962,8 @@ class SphereCrop(object):
                         data_crop_dict["grid_coord"] = data_dict["grid_coord"][idx_crop]
                     if "normal" in data_dict.keys():
                         data_crop_dict["normal"] = data_dict["normal"][idx_crop]
+                    if "verticality" in data_dict.keys():
+                        data_crop_dict["verticality"] = data_dict["verticality"][idx_crop]
                     if "color" in data_dict.keys():
                         data_crop_dict["color"] = data_dict["color"][idx_crop]
                     if "displacement" in data_dict.keys():
@@ -1008,6 +1012,8 @@ class SphereCrop(object):
                 data_dict["color"] = data_dict["color"][idx_crop]
             if "normal" in data_dict.keys():
                 data_dict["normal"] = data_dict["normal"][idx_crop]
+            if "verticality" in data_dict.keys():
+                data_dict["verticality"] = data_dict["verticality"][idx_crop]
             if "segment" in data_dict.keys():
                 data_dict["segment"] = data_dict["segment"][idx_crop]
             if "instance" in data_dict.keys():
@@ -1035,6 +1041,8 @@ class ShufflePoint(object):
             data_dict["color"] = data_dict["color"][shuffle_index]
         if "normal" in data_dict.keys():
             data_dict["normal"] = data_dict["normal"][shuffle_index]
+        if "verticality" in data_dict.keys():
+            data_dict["verticality"] = data_dict["verticality"][shuffle_index]
         if "segment" in data_dict.keys():
             data_dict["segment"] = data_dict["segment"][shuffle_index]
         if "instance" in data_dict.keys():
@@ -1056,6 +1064,8 @@ class CropBoundary(object):
             data_dict["color"] = data_dict["color"][mask]
         if "normal" in data_dict.keys():
             data_dict["normal"] = data_dict["normal"][mask]
+        if "verticality" in data_dict.keys():
+            data_dict["verticality"] = data_dict["verticality"][mask]
         if "segment" in data_dict.keys():
             data_dict["segment"] = data_dict["segment"][mask]
         if "instance" in data_dict.keys():
