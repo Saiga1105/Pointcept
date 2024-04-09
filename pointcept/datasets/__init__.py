@@ -5,8 +5,6 @@ from .utils import point_collate_fn, collate_fn
 # indoor scene
 from .threedom import ThreeDomDataset
 from .threedom_features import ThreeDomFeaturesDataset
-from .kul import KULDataset
-
 from .s3dis import S3DISDataset
 from .scannet import ScanNetDataset, ScanNet200Dataset
 from .scannet_pair import ScanNetPairDataset
