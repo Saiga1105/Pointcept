@@ -3,6 +3,8 @@ from .builder import build_dataset
 from .utils import point_collate_fn, collate_fn
 
 # indoor scene
+
+from .kul import KULDataset
 from .threedom import ThreeDomDataset
 from .threedom_features import ThreeDomFeaturesDataset
 from .s3dis import S3DISDataset
