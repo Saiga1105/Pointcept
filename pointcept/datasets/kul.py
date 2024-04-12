@@ -23,7 +23,7 @@ class KULDataset(Dataset):
     def __init__(
         self,
         split="train",
-        data_root="data/t1_data_test/",
+        data_root="data/",
         transform=None,
         test_mode=False,
         test_cfg=None,
